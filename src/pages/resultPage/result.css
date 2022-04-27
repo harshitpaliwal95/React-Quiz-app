@@ -1,0 +1,7 @@
+.right-ans {
+  background-color: var(--success-color);
+}
+
+.worng-ans {
+  background-color: var(--danger-color);
+}
