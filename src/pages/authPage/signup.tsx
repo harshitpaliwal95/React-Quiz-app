@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-
-import { useEffect, useState } from "react";
+import { Body } from "./modal";
+import {  useState } from "react";
 import axios from "axios";
 
 import "./auth.css";
@@ -12,13 +12,6 @@ export function SignUp() {
   const [showPassword, setShowPassword] = useState<string>("");
 
   const navigate = useNavigate();
-
-  interface Body {
-    email: string;
-    password: string;
-    name?: string;
-    lastName?: string;
-  }
 
   const signupHandler = async () => {
     const body: Body = {

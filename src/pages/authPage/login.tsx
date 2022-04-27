@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { Body } from "./modal";
 
 import "./auth.css";
 export const Login = () => {
@@ -13,7 +14,7 @@ export const Login = () => {
   const logInHandler = async () => {
     console.log("clicked");
 
-    const body = {
+    const body: Body = {
       email: email,
       password: password,
     };
