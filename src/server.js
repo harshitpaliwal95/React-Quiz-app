@@ -41,7 +41,6 @@ export function makeServer({ environment = "development" } = {}) {
       server.logging = false;
       quizzes.forEach((item) => {
         server.create("quiz", item);
-        // console.log(item);
       });
 
       users.forEach((item) =>
