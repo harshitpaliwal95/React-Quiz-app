@@ -64,6 +64,6 @@ main {
 
 @media only screen and (max-width: 600px) {
   .ui-nav {
-    margin: 0.6rem;
+    margin: 0.8rem;
   }
 }

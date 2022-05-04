@@ -1,19 +1,30 @@
-import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import "./navbar.css";
 
 export const NavBar = () => {
+  const [dropDown, setDropDown] = useState<boolean>(false);
   return (
     <nav className="ui-nav">
       <div className="right-nav">
-        <span className="main-heading">Quiz Bizz</span>
+        <Link to="/">
+          <span className="main-heading">Quiz Bizz</span>
+        </Link>
       </div>
-      <ul className="left-nav">
-        <div className="nav-item">
-          <p className="text-lg">Rules</p>
+      <div className="left-nav">
+        <button
+          className="bi bi-person-fill btn-icon"
+          onClick={() => setDropDown((pre) => (pre ? false : true))}
+        ></button>
+        <div className={`drop-box ${dropDown ? "show-box" : ""}`}>
+          <Link to="/login">
+            <p>Login</p>
+          </Link>
+          <Link to="/signup">
+            <p>SignUp</p>
+          </Link>
         </div>
-        <div className="nav-item">
-          <p className="text-lg">Category</p>
-        </div>
-      </ul>
+      </div>
     </nav>
   );
 };
