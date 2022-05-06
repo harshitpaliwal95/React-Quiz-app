@@ -1,5 +1,5 @@
 import "./categoryCard.css";
-import { CategoryType } from "../../modal/modal";
+import { CategoryType } from "../../types";
 
 export const CategoryCard = ({ categoryName, img }: CategoryType) => {
   return (
