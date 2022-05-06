@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Body } from "./modal";
-import {  useState } from "react";
+import { AuthBody } from "../../modal/modal";
+import { useState } from "react";
 import axios from "axios";
 
 import "./auth.css";
@@ -14,7 +14,7 @@ export function SignUp() {
   const navigate = useNavigate();
 
   const signupHandler = async () => {
-    const body: Body = {
+    const body: AuthBody = {
       email: email,
       password: password,
       name: name,

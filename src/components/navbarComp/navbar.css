@@ -4,8 +4,12 @@
 .left-nav {
   position: relative;
 }
-.left-nav > .btn-icon {
+.left-nav,
+.btn-icon {
   color: var(--white);
+}
+.btn-icon:nth-child(2) {
+  font-size: 1rem;
 }
 .left-nav > .btn-icon:hover {
   background-color: rgba(255, 255, 255, 0.354);
