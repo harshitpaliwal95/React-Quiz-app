@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CategoryCard } from "../../components";
-import { CategoryType } from "../../modal/modal";
+import { CategoryType } from "../../types";
 
 export const Home = () => {
   const [data, setdata] = useState<CategoryType[]>();

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { AuthBody } from "../../modal/modal";
+import { AuthBody } from "../../types";
 
 import "./auth.css";
 export const Login = () => {

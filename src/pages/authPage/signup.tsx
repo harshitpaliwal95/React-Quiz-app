@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { AuthBody } from "../../modal/modal";
+import { AuthBody } from "../../types";
 import { useState } from "react";
 import axios from "axios";
 
