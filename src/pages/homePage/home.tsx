@@ -21,11 +21,11 @@ export const Home = () => {
   return (
     <main>
       <div className="grid-two">
-        {data?.map((data) => (
+        {data?.map((dataOne) => (
           <CategoryCard
-            key={data._id}
-            categoryName={data.categoryName}
-            img={data.img}
+            key={dataOne._id}
+            categoryName={dataOne.categoryName}
+            img={dataOne.img}
           />
         ))}
       </div>
