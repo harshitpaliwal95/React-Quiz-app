@@ -1,17 +1,19 @@
-import React from "react";
-import demoImg from "../../assets/luffy.jpg";
+import "./categoryCard.css";
+import { CategoryType } from "../../modal/modal";
 
-export const CategoryCard = () => {
+export const CategoryCard = ({ categoryName, img }: CategoryType) => {
   return (
     <div>
-      <a href="pages/category-page/category.html">
-        <div className="card-component luffy-card">
-          <div className="card-comp-img">
-            <img className="card-top-img" src={demoImg} alt="Category img" />
-          </div>
-          <div className="card-badge">Anime Quizz</div>
+      <div className="card-component luffy-card">
+        <div className="card-comp-img">
+          <img
+            className="card-top-img"
+            src={`https://i.ytimg.com/vi/${img}/hqdefault.jpg`}
+            alt="Category img"
+          />
         </div>
-      </a>
+        <div className="card-badge">{categoryName}</div>
+      </div>
     </div>
   );
 };
