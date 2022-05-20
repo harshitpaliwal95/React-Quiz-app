@@ -8,7 +8,12 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "TV Show",
-    description: "Quizes based on TV shows",
+    categoryName: "Anime Quiz",
+    img: "SC8qp_TCvc4",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Coding Quiz",
+    img: "uCgoBZf9CDU",
   },
 ];

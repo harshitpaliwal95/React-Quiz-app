@@ -16,6 +16,7 @@ export const NavBar = () => {
           className="bi bi-person-fill btn-icon"
           onClick={() => setDropDown((pre) => (pre ? false : true))}
         ></button>
+        <button className="bi bi-moon-fill btn-icon"></button>
         <div className={`drop-box ${dropDown ? "show-box" : ""}`}>
           <Link to="/login">
             <p>Login</p>

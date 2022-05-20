@@ -1,0 +1,17 @@
+.card-top-img {
+  object-fit: initial;
+}
+.card-badge {
+  background-color: #100d2a;
+  color: white;
+  padding: 0.6rem;
+  margin: 0rem 0rem;
+  width: auto;
+  position: unset;
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .card-component {
+    width: 22.5rem;
+  }
+}

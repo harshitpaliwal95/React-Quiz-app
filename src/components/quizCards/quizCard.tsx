@@ -1,4 +1,3 @@
-import React from "react";
 import demoImg from "../../assets/luffy.jpg";
 
 export const QuizCard = () => {
