@@ -7,8 +7,58 @@ import { v4 as uuid } from "uuid";
 
 export const quizzes = [
   {
+    _id: uuid(),
+    title: "One Piece",
+    img: "HYNfMOK9kvg",
+    totalScore: 20,
+    mcqs: [
+      {
+        _id: uuid(),
+        question: "Zoro's most powerfull move",
+        options: [
+          "Kiki Kyuutoryu: Asura",
+          "Santoryu Ougi: Rengoku Onigiri",
+          "Santoryu Ougi: Sanzen Sekai",
+          "Ichidai Sanzen Daisen Sekai",
+        ],
+        answer: "Ichidai Sanzen Daisen Sekai",
+      },
+      {
+        _id: uuid(),
+        question: "In Mock Town, how did Bellamy lose to Luffy?",
+        options: [
+          "yes he lose first",
+          "luffy knocked out bellamy with one punch",
+          "Zoro beat bellamy",
+          "they walk away",
+        ],
+        answer: "luffy knocked out bellamy with one punch",
+      },
+      {
+        _id: uuid(),
+        question: "Luffy's devil fruit type",
+        options: ["Logia type", "Zoan type", "Paramecia type", "Unknown"],
+        answer: "Zoan type",
+      },
+      {
+        _id: uuid(),
+        question: "Whitebeard pirate first division commander was?",
+        options: [
+          "Fire Fist Portgas D. Ace",
+          "Marco the Phoenix",
+          "Thatch",
+          "Kizuki Oden",
+        ],
+        answer: "Marco the Phoenix",
+      },
+    ],
+    catergoryName: "anime",
+  },
+
+  {
     _id: "3fe39675-140b-4075-82f3-949a4dc95d18",
-    title: "You Can WIN",
+    title: "Naruto",
+    img: "lOxAXP8RrhU",
     totalScore: 20,
     mcqs: [
       {
@@ -30,11 +80,12 @@ export const quizzes = [
         answer: "Attachment Issues",
       },
     ],
-    catergoryName: "One piece",
+    catergoryName: "anime",
   },
   {
     _id: "3fe39675-140b-4075-82f3-949a4dc95d18",
     title: "Naruto",
+    img: "imgadf",
     totalScore: 20,
     mcqs: [
       {
@@ -56,6 +107,6 @@ export const quizzes = [
         answer: "Attachment Issues",
       },
     ],
-    catergoryName: "Naruto",
+    catergoryName: "coding",
   },
 ];

@@ -8,6 +8,7 @@ export const CategoryCard = ({ categoryName, img }: CategoryType) => {
         <div className="card-comp-img">
           <img
             className="card-top-img"
+            id="category-img"
             src={`https://i.ytimg.com/vi/${img}/hqdefault.jpg`}
             alt="Category img"
           />
