@@ -52,7 +52,7 @@ export const quizzes = [
         answer: "Marco the Phoenix",
       },
     ],
-    catergoryName: "anime",
+    categoryName: "anime",
   },
 
   {
@@ -80,7 +80,7 @@ export const quizzes = [
         answer: "Attachment Issues",
       },
     ],
-    catergoryName: "anime",
+    categoryName: "anime",
   },
   {
     _id: "3fe39675-140b-4075-82f3-949a4dc95d18",
@@ -107,6 +107,6 @@ export const quizzes = [
         answer: "Attachment Issues",
       },
     ],
-    catergoryName: "coding",
+    categoryName: "coding",
   },
 ];

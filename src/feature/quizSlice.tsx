@@ -5,16 +5,18 @@ export interface quizState {
   isLoading: boolean;
   allQuiz: string[];
   categoryQuiz: string[];
-  QuizAns: null;
+  quizAns: null;
   error: string | null;
+  quizMcq: string[];
 }
 
 const initialState = {
   isLoading: false,
   allQuiz: [],
   categoryQuiz: [],
-  QuizAns: null,
+  quizAns: null,
   error: null,
+  quizMcq: [],
 };
 
 export const getCategory = createAsyncThunk(
@@ -28,11 +30,28 @@ export const getCategory = createAsyncThunk(
     }
   }
 );
+export const getAllQuiz = createAsyncThunk(
+  "quiz/getAllQuiz",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get("/api/quizzes");
+      return response.data.quizes;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
 
 export const quizSlice = createSlice({
   name: "quiz",
   initialState,
-  reducers: {},
+  reducers: {
+    mcqQuiz: (state, { payload }) => {
+      state.quizMcq = state.allQuiz.filter(
+        (data: any) => data.categoryName === payload
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCategory.pending, (state) => {
@@ -45,7 +64,18 @@ export const quizSlice = createSlice({
       .addCase(getCategory.rejected, (state, action: any) => {
         state.error = action.message;
       });
+    builder
+      .addCase(getAllQuiz.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getAllQuiz.fulfilled, (state, actiion: any) => {
+        state.isLoading = false;
+        state.allQuiz = actiion.payload;
+      })
+      .addCase(getAllQuiz.rejected, (state, action: any) => {
+        state.error = action.message;
+      });
   },
 });
-
+export const { mcqQuiz } = quizSlice.actions;
 export default quizSlice.reducer;

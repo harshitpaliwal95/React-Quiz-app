@@ -1,4 +1,3 @@
-import React from "react";
 import { QuizCard } from "../../components";
 
 export const Category = () => {
