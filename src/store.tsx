@@ -1,4 +1,4 @@
-import { configureStore, Middleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import quizReducer from "./feature/quizSlice";
 export const store = configureStore({
   reducer: {
