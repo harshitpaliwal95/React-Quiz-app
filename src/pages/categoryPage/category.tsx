@@ -7,7 +7,7 @@ export const Category = () => {
 
   return (
     <main>
-      <div className="heading-x-lg">Anime Quizzes</div>
+      <div className="heading-x-lg">Quizzes</div>
       <div className="grid-two">
         {quiz.subQuiz.map((data: any) => (
           <QuizCard key={data._id} data={data} />

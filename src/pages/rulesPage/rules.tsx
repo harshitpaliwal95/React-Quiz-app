@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import "./rules.css";
 export const Rules = () => {
+  const navigate = useNavigate();
   return (
     <main>
       <div className="rules-box">
@@ -28,7 +30,7 @@ export const Rules = () => {
           every wrong answer.
         </div>
       </div>
-      <button className="btn rules-box-btn">
+      <button className="btn rules-box-btn" onClick={() => navigate("/quiz")}>
         <p>Star Quizz</p>
       </button>
     </main>

@@ -1,14 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { QuizState } from "../types";
 import axios from "axios";
-
-export interface QuizState {
-  isLoading: boolean;
-  allQuiz: string[];
-  categoryQuiz: string[];
-  quizAns: null;
-  error: string | null;
-  subQuiz: string[];
-}
 
 const initialState: QuizState = {
   isLoading: false,
@@ -17,6 +9,8 @@ const initialState: QuizState = {
   quizAns: null,
   error: null,
   subQuiz: [],
+  selectedMcq: [],
+  result: [],
 };
 
 export const getCategory = createAsyncThunk(
@@ -51,6 +45,18 @@ export const quizSlice = createSlice({
         (data: any) => data.categoryName === payload
       );
     },
+    selectedMcq: (state, { payload }: any) => {
+      const quizArr: any = state.subQuiz.find(
+        (data: any) => data.title === payload
+      );
+      state.selectedMcq = quizArr.mcqs;
+    },
+    finnalResult: (state, { payload }: any) => {
+      const que: any = state.selectedMcq.find(
+        (data: any) => data._id === payload._id
+      );
+      state.result.push({ ...que, userAns: payload.selectedOpt });
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -77,5 +83,5 @@ export const quizSlice = createSlice({
       });
   },
 });
-export const { subQuiz } = quizSlice.actions;
+export const { subQuiz, selectedMcq, finnalResult } = quizSlice.actions;
 export default quizSlice.reducer;

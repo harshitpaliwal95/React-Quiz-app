@@ -1,9 +1,20 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { selectedMcq } from "../../feature/quizSlice";
+import { AppDispatch } from "../../store";
+
 export const QuizCard = (data: any) => {
   const { title, img, categoryName } = data.data;
+  const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const quizHandler = () => {
+    navigate("/rules  ");
+    dispatch(selectedMcq(title));
+  };
   return (
     <div>
-      <a href="../rules-page/rules.html">
+      <div onClick={quizHandler}>
         <div className="card-component luffy-card">
           <div className="card-comp-img">
             <img
@@ -19,7 +30,7 @@ export const QuizCard = (data: any) => {
             <h3 className="card-h3">5 Question</h3>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 };
