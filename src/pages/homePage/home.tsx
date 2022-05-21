@@ -1,31 +1,27 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { CategoryCard } from "../../components";
-import { CategoryType } from "../../types";
+import { getAllQuiz, getCategory } from "../../feature/quizSlice";
+import { AppDispatch, RootState } from "../../store";
+import { useEffect } from "react";
 
 export const Home = () => {
-  const [data, setdata] = useState<CategoryType[]>();
-  const fetch = async () => {
-    try {
-      const response = await axios.get("/api/categories");
-      setdata(response.data.categories);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { quiz } = useSelector((store: RootState) => store);
+
+  const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
-    fetch();
+    dispatch(getCategory());
+    dispatch(getAllQuiz());
   }, []);
 
-  console.log(data);
   return (
     <main>
       <div className="grid-two">
-        {data?.map((dataOne) => (
+        {quiz.categoryQuiz.map((dataOne: any) => (
           <CategoryCard
             key={dataOne._id}
             categoryName={dataOne.categoryName}
             img={dataOne.img}
+            _id={dataOne._id}
           />
         ))}
       </div>

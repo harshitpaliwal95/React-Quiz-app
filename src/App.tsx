@@ -10,7 +10,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="category" element={<Category />} />
+        <Route path="category/:categoryName" element={<Category />} />
         <Route path="rules" element={<Rules />} />
         <Route path="quiz" element={<Quiz />} />
         <Route path="result" element={<Result />} />
