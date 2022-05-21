@@ -10,6 +10,7 @@ const initialState: QuizState = {
   error: null,
   subQuiz: [],
   selectedMcq: [],
+  result: [],
 };
 
 export const getCategory = createAsyncThunk(
@@ -50,6 +51,12 @@ export const quizSlice = createSlice({
       );
       state.selectedMcq = quizArr.mcqs;
     },
+    finnalResult: (state, { payload }: any) => {
+      const que: any = state.selectedMcq.find(
+        (data: any) => data._id === payload._id
+      );
+      state.result.push({ ...que, userAns: payload.selectedOpt });
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -76,5 +83,5 @@ export const quizSlice = createSlice({
       });
   },
 });
-export const { subQuiz, selectedMcq } = quizSlice.actions;
+export const { subQuiz, selectedMcq, finnalResult } = quizSlice.actions;
 export default quizSlice.reducer;

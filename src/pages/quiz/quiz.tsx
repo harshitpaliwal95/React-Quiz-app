@@ -1,28 +1,42 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { finnalResult } from "../../feature/quizSlice";
+import { AppDispatch, RootState } from "../../store";
 import "./quiz.css";
 
 const QuizQuestion = ({ data }: any) => {
-  const { question, options, answer } = data;
-  return (
-    <React.Fragment>
-      <div className="text-lg">{question}</div>
+  const dispatch: AppDispatch = useDispatch();
 
+  const optHandler = (selectedOpt: any, _id: any) => {
+    dispatch(finnalResult({ selectedOpt, _id }));
+  };
+
+  const { question, options, _id } = data;
+  return (
+    <>
+      <div className="text-lg">{question}</div>
       {options.map((opt: any) => (
-        <div className="quiz-option" key={opt}>
+        <div className="quiz-option" key={opt.opt}>
           <label>
-            <input type="radio" value={opt} name="quiz"></input> {opt}
+            <input
+              type="radio"
+              value={opt.opt}
+              onChange={() => optHandler(opt.opt, _id)}
+              name={_id}
+            ></input>
+            {opt.opt}
           </label>
         </div>
       ))}
-    </React.Fragment>
+    </>
   );
 };
 
 export const Quiz = () => {
   const { quiz } = useSelector((store: RootState) => store);
 
+  const navigate = useNavigate();
   return (
     <main>
       <div className="que-container">
@@ -37,6 +51,11 @@ export const Quiz = () => {
         {quiz.selectedMcq.map((data: any) => (
           <QuizQuestion key={data._id} data={data} />
         ))}
+      </div>
+      <div className="btn-box">
+        <button className="btn" onClick={() => navigate("/result")}>
+          Result
+        </button>
       </div>
     </main>
   );

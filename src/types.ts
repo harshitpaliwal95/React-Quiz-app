@@ -18,4 +18,5 @@ export interface QuizState {
   error: string | null;
   subQuiz: string[];
   selectedMcq: string[];
+  result: string[];
 }
