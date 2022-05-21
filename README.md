@@ -1,38 +1,40 @@
-<h1 align="center">Power Tube</h1>
+<h1 align="center">Quiz app</h1>
 
-<p align="center">Watch some cool avm</p>
+<p align="center">lets see how much do you know</p>
 
 ### preview
 
-![Webp net-gifmaker(2)](https://user-images.githubusercontent.com/60725346/162483620-fad79da9-71ea-458c-8391-3bcf25bf832d.gif)
+
+
+https://user-images.githubusercontent.com/60725346/169650855-7acf9bc0-898a-47c3-97ab-cdb68b32716a.mov
+
+
 
 ## Live link
 
-https://power-tube.netlify.app/
+https://quiz-bizz-app-react.netlify.app/
 
 ## Features
 
 - Home Page
-- Explore page
+- Category 
 - Authentication login/signup
-- watch later
-- like video
-- create playlist
-- add to playlist
-- delete playlist
+- sub category
+- Quizes
+- result page
 
 ## Getting Started
 
 - Clone the project
 
 ```bash
- https://github.com/harshitpaliwal95/power-tube.git
+https://github.com/harshitpaliwal95/React-Quiz-app.git
 ```
 
 - Go to the project directory
 
 ```bash
-  cd shoe-zone-ecom-app
+  cd React-Quiz-app
 ```
 
 - Create a `.env` file at the root level of the directory
@@ -50,7 +52,7 @@ https://power-tube.netlify.app/
 ## Technologies used
 
 - ReactJS
-- [Power Tube](https://power-tube.netlify.app/)
+- [PQuiz App](https://quiz-bizz-app-react.netlify.app/)
 - Mockbee for backend
 
 **Hosted:** Netlify
