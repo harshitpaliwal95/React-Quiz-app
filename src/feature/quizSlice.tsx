@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export interface quizState {
+export interface QuizState {
   isLoading: boolean;
   allQuiz: string[];
   categoryQuiz: string[];
@@ -10,7 +10,7 @@ export interface quizState {
   subQuiz: string[];
 }
 
-const initialState = {
+const initialState: QuizState = {
   isLoading: false,
   allQuiz: [],
   categoryQuiz: [],
