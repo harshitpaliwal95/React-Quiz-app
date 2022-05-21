@@ -9,3 +9,13 @@ export interface CategoryType {
   categoryName: string;
   img: string;
 }
+
+export interface QuizState {
+  isLoading: boolean;
+  allQuiz: string[];
+  categoryQuiz: string[];
+  quizAns: null;
+  error: string | null;
+  subQuiz: string[];
+  selectedMcq: string[];
+}

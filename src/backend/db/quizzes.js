@@ -51,6 +51,12 @@ export const quizzes = [
         ],
         answer: "Marco the Phoenix",
       },
+      {
+        _id: uuid(),
+        question: "Who Kill Portgas D Ace",
+        options: ["Akainu", "Kizaru", " Marshall D. Teach", "Crocodile"],
+        answer: "Akainu",
+      },
     ],
     categoryName: "anime",
   },
