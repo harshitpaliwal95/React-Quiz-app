@@ -7,7 +7,7 @@ export interface quizState {
   categoryQuiz: string[];
   quizAns: null;
   error: string | null;
-  quizMcq: string[];
+  subQuiz: string[];
 }
 
 const initialState = {
@@ -16,7 +16,7 @@ const initialState = {
   categoryQuiz: [],
   quizAns: null,
   error: null,
-  quizMcq: [],
+  subQuiz: [],
 };
 
 export const getCategory = createAsyncThunk(
@@ -46,8 +46,8 @@ export const quizSlice = createSlice({
   name: "quiz",
   initialState,
   reducers: {
-    mcqQuiz: (state, { payload }: any) => {
-      state.quizMcq = state.allQuiz.filter(
+    subQuiz: (state, { payload }: any) => {
+      state.subQuiz = state.allQuiz.filter(
         (data: any) => data.categoryName === payload
       );
     },
@@ -77,5 +77,5 @@ export const quizSlice = createSlice({
       });
   },
 });
-export const { mcqQuiz } = quizSlice.actions;
+export const { subQuiz } = quizSlice.actions;
 export default quizSlice.reducer;

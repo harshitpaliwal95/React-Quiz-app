@@ -3,14 +3,14 @@ import { CategoryType } from "../../types";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../store";
 import { useDispatch } from "react-redux";
-import { mcqQuiz } from "../../feature/quizSlice";
+import { subQuiz } from "../../feature/quizSlice";
 
 export const CategoryCard = ({ categoryName, img, _id }: CategoryType) => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const categoryHandler = (catName: any) => {
-    navigate("/rules");
-    dispatch(mcqQuiz(catName));
+    navigate(`/category/${catName}`);
+    dispatch(subQuiz(catName));
   };
   return (
     <div>
