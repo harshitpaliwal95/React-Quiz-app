@@ -84,8 +84,8 @@ export const quizzes = [
   },
   {
     _id: "3fe39675-140b-4075-82f3-949a4dc95d18",
-    title: "Naruto",
-    img: "imgadf",
+    title: "CSS",
+    img: "OEV8gMkCHXQ",
     totalScore: 20,
     mcqs: [
       {
