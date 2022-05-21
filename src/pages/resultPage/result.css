@@ -1,7 +1,7 @@
 .right-ans {
-  background-color: var(--success-color);
+  background-color: var(--success-color) !important;
 }
 
-.worng-ans {
+.wrong-ans {
   background-color: var(--danger-color);
 }

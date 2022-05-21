@@ -8,7 +8,7 @@ import "./quiz.css";
 const QuizQuestion = ({ data }: any) => {
   const dispatch: AppDispatch = useDispatch();
 
-  const optHandler = (selectedOpt: any, _id: any) => {
+  const optHandler = (selectedOpt: any) => {
     dispatch(finnalResult({ selectedOpt, _id }));
   };
 
@@ -22,7 +22,7 @@ const QuizQuestion = ({ data }: any) => {
             <input
               type="radio"
               value={opt.opt}
-              onChange={() => optHandler(opt.opt, _id)}
+              onChange={() => optHandler(opt.opt)}
               name={_id}
             ></input>
             {opt.opt}

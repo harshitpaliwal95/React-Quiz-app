@@ -1,6 +1,43 @@
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 import "./result.css";
 
+const ResultQuiz = (data: any) => {
+  const { question, options, answer, userAns } = data.data;
+
+  const resultCheck = (opt: string) => {
+    if (answer === opt) {
+      return "right-ans";
+    }
+    if (userAns === opt) {
+      if (userAns !== answer) {
+        return "wrong-ans";
+      }
+    }
+
+    // if (userAns === opt && userAns === answer) {
+    //   return "right-ans";
+    // } else if (userAns === opt) {
+    //   return "wrong-ans";
+    // } else {
+    //   return "";
+    // }
+  };
+  return (
+    <>
+      <div className="text-lg">{question}</div>
+      {options.map((opt: any) => (
+        <div className={`quiz-option ${resultCheck(opt.opt)}`} key={opt.opt}>
+          {opt.opt}
+        </div>
+      ))}
+    </>
+  );
+};
+
 export const Result = () => {
+  const { quiz } = useSelector((store: RootState) => store);
+
   return (
     <main>
       <div className="que-container">
@@ -8,20 +45,10 @@ export const Result = () => {
           <div>
             <h3>Finnal Result</h3>
           </div>
-          <div>
-            <h3>Score: 20/100</h3>
-          </div>
         </div>
-        <div className="text-lg">Who is luffy's father</div>
-        <div className="quiz-option worng-ans">1. Red Hair Shanks</div>
-        <div className="quiz-option right-ans">2. Revolutionary Dragon</div>
-        <div className="quiz-option">3. Navy Hero Garp</div>
-      </div>
-      <div className="que-container">
-        <div className="text-lg">Who Kill Portgas D Ace</div>
-        <div className="quiz-option right-ans">1. Akainu</div>
-        <div className="quiz-option">2. Kizaru</div>
-        <div className="quiz-option worng-ans">3. Marshall D. Teach</div>
+        {quiz.result.map((data: any) => (
+          <ResultQuiz key={data._id} data={data} />
+        ))}
       </div>
     </main>
   );
