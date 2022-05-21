@@ -50,7 +50,9 @@ https://github.com/harshitpaliwal95/React-Quiz-app.git
 ```
 
 ## Technologies used
-
+- HTML,CSS
+- TypeScript
+- Redux Toolkit
 - ReactJS
 - [PQuiz App](https://quiz-bizz-app-react.netlify.app/)
 - Mockbee for backend
