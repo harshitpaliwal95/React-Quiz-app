@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { CategoryCard } from "../../components";
-import { getAllQuiz, getCategory, mcqQuiz } from "../../feature/quizSlice";
+import { getAllQuiz, getCategory } from "../../feature/quizSlice";
 import { AppDispatch, RootState } from "../../store";
 import { useEffect } from "react";
 
@@ -13,11 +13,6 @@ export const Home = () => {
     dispatch(getAllQuiz());
   }, []);
 
-  // dispatch(mcqQuiz("anime"));
-  console.log(
-    quiz.allQuiz.filter((item: any) => item.categoryName === "anime")
-  );
-
   return (
     <main>
       <div className="grid-two">
@@ -26,6 +21,7 @@ export const Home = () => {
             key={dataOne._id}
             categoryName={dataOne.categoryName}
             img={dataOne.img}
+            _id={dataOne._id}
           />
         ))}
       </div>

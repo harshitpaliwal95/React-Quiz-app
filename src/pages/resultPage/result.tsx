@@ -1,6 +1,15 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { mcqQuiz } from "../../feature/quizSlice";
+import { AppDispatch } from "../../store";
 import "./result.css";
 
 export const Result = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(mcqQuiz("anime"));
+  }, []);
   return (
     <main>
       <div className="que-container">

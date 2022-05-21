@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export interface quizState {
@@ -46,7 +46,7 @@ export const quizSlice = createSlice({
   name: "quiz",
   initialState,
   reducers: {
-    mcqQuiz: (state, { payload }) => {
+    mcqQuiz: (state, { payload }: any) => {
       state.quizMcq = state.allQuiz.filter(
         (data: any) => data.categoryName === payload
       );
@@ -57,9 +57,9 @@ export const quizSlice = createSlice({
       .addCase(getCategory.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getCategory.fulfilled, (state, actiion: any) => {
+      .addCase(getCategory.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.categoryQuiz = actiion.payload;
+        state.categoryQuiz = action.payload;
       })
       .addCase(getCategory.rejected, (state, action: any) => {
         state.error = action.message;
