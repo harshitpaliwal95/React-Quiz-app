@@ -14,14 +14,6 @@ const ResultQuiz = (data: any) => {
         return "wrong-ans";
       }
     }
-
-    // if (userAns === opt && userAns === answer) {
-    //   return "right-ans";
-    // } else if (userAns === opt) {
-    //   return "wrong-ans";
-    // } else {
-    //   return "";
-    // }
   };
   return (
     <>
