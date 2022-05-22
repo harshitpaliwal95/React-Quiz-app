@@ -20,3 +20,11 @@ export interface QuizState {
   selectedMcq: string[];
   result: string[];
 }
+
+export interface Authstate {
+  isLoading: boolean;
+  isAuth: boolean;
+  userName: string | null;
+  encodedToken: any;
+  error: string | null;
+}

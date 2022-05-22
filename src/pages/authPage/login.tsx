@@ -1,15 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
 import { AuthBody } from "../../types";
-
 import "./auth.css";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../store";
+import { login } from "../../feature/authSlice";
+
 export const Login = () => {
   const [email, setEmail] = useState<string>("");
-
   const [password, setPassword] = useState<string>("");
-
   const [showPassword, setShowPassword] = useState<string>("password");
+  const navigate = useNavigate();
+  const dispatch: AppDispatch = useDispatch();
 
   const logInHandler = async () => {
     console.log("clicked");
@@ -18,13 +20,10 @@ export const Login = () => {
       email: email,
       password: password,
     };
-    try {
-      const response = await axios.post("/api/auth/login", body);
-      localStorage.setItem("token", response.data.encodedToken);
-      console.log("succes", response.data.encodedToken);
-    } catch (Error) {
-      console.log(Error);
-    }
+    await dispatch(login(body));
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
 
   return (
