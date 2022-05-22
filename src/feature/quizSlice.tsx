@@ -57,6 +57,9 @@ export const quizSlice = createSlice({
       );
       state.result.push({ ...que, userAns: payload.selectedOpt });
     },
+    clearMcq: (state) => {
+      state.selectedMcq = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -83,5 +86,6 @@ export const quizSlice = createSlice({
       });
   },
 });
-export const { subQuiz, selectedMcq, finnalResult } = quizSlice.actions;
+export const { subQuiz, selectedMcq, finnalResult, clearMcq } =
+  quizSlice.actions;
 export default quizSlice.reducer;
