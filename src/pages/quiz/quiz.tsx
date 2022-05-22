@@ -17,15 +17,15 @@ const QuizQuestion = ({ data }: any) => {
     <>
       <div className="text-lg">{question}</div>
       {options.map((opt: any) => (
-        <div className="quiz-option" key={opt.opt}>
+        <div className="quiz-option" key={opt}>
           <label>
             <input
               type="radio"
-              value={opt.opt}
-              onChange={() => optHandler(opt.opt)}
+              value={opt}
+              onChange={() => optHandler(opt)}
               name={_id}
             ></input>
-            {opt.opt}
+            {opt}
           </label>
         </div>
       ))}

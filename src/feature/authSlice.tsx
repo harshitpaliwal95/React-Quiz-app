@@ -5,7 +5,7 @@ import { AuthBody, Authstate } from "../types";
 
 const initialState: Authstate = {
   isLoading: false,
-  isAuth: false,
+  isAuth: localStorage.getItem("token") ? true : false,
   userName: localStorage.getItem("userName"),
   encodedToken: localStorage.getItem("token"),
   error: null,

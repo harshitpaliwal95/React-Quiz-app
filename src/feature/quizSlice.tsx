@@ -78,8 +78,8 @@ export const quizSlice = createSlice({
         state.isLoading = false;
         state.allQuiz = actiion.payload;
       })
-      .addCase(getAllQuiz.rejected, (state, action: any) => {
-        state.error = action.message;
+      .addCase(getAllQuiz.rejected, (state, { payload }: any) => {
+        state.error = payload;
       });
   },
 });
