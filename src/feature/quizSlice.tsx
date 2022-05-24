@@ -57,6 +57,9 @@ export const quizSlice = createSlice({
       );
       state.result.push({ ...que, userAns: payload.selectedOpt });
     },
+    clearMcq: (state) => {
+      state.selectedMcq = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -78,10 +81,11 @@ export const quizSlice = createSlice({
         state.isLoading = false;
         state.allQuiz = actiion.payload;
       })
-      .addCase(getAllQuiz.rejected, (state, action: any) => {
-        state.error = action.message;
+      .addCase(getAllQuiz.rejected, (state, { payload }: any) => {
+        state.error = payload;
       });
   },
 });
-export const { subQuiz, selectedMcq, finnalResult } = quizSlice.actions;
+export const { subQuiz, selectedMcq, finnalResult, clearMcq } =
+  quizSlice.actions;
 export default quizSlice.reducer;

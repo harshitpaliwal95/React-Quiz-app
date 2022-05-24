@@ -1,9 +1,16 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store";
 import "./result.css";
+import { ScrollToTop } from "../../customHook/scrollToTop";
+import { useEffect } from "react";
+import { clearMcq } from "../../feature/quizSlice";
 
 const ResultQuiz = (data: any) => {
   const { question, options, answer, userAns } = data.data;
+  const dispatch: AppDispatch = useDispatch();
+  useEffect(() => {
+    dispatch(clearMcq());
+  });
 
   const resultCheck = (opt: string) => {
     if (answer === opt) {
@@ -19,8 +26,8 @@ const ResultQuiz = (data: any) => {
     <>
       <div className="text-lg">{question}</div>
       {options.map((opt: any) => (
-        <div className={`quiz-option ${resultCheck(opt.opt)}`} key={opt.opt}>
-          {opt.opt}
+        <div className={`quiz-option ${resultCheck(opt)}`} key={opt}>
+          {opt}
         </div>
       ))}
     </>
@@ -30,6 +37,9 @@ const ResultQuiz = (data: any) => {
 export const Result = () => {
   const { quiz } = useSelector((store: RootState) => store);
 
+  useEffect(() => {
+    ScrollToTop();
+  }, []);
   return (
     <main>
       <div className="que-container">
