@@ -60,6 +60,9 @@ export const quizSlice = createSlice({
     clearMcq: (state) => {
       state.selectedMcq = [];
     },
+    clearResult: (state) => {
+      state.result = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -86,6 +89,6 @@ export const quizSlice = createSlice({
       });
   },
 });
-export const { subQuiz, selectedMcq, finnalResult, clearMcq } =
+export const { subQuiz, selectedMcq, finnalResult, clearMcq, clearResult } =
   quizSlice.actions;
 export default quizSlice.reducer;
