@@ -15,7 +15,7 @@ body {
   color: white;
 }
 :root {
-  --box-shadow-quiz: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+  --box-shadow-quiz: gray 0px 8px 24px;
 }
 main {
   display: flex;
@@ -24,10 +24,6 @@ main {
 }
 
 /* navbar items */
-.nav-item a {
-  background-color: transparent;
-  color: white;
-}
 
 .card-top-img {
   height: 22rem;
@@ -38,6 +34,7 @@ main {
 
 .card-component {
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.17);
 }
 
 .luffy-card {
@@ -55,7 +52,7 @@ main {
 }
 
 .card-h2 {
-  color: white;
+  color: inherit;
 }
 .card-h3 {
   margin-bottom: 0.4rem;

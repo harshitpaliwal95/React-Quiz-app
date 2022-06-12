@@ -10,3 +10,8 @@
   color: black;
   width: 15rem;
 }
+.dark-mode .rules-box-btn {
+  background-color: black;
+  color: white;
+  width: 15rem;
+}

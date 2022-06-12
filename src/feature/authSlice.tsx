@@ -9,6 +9,7 @@ const initialState: Authstate = {
   userName: localStorage.getItem("userName"),
   encodedToken: localStorage.getItem("token"),
   error: null,
+  darkMode: true,
 };
 
 export const login = createAsyncThunk(

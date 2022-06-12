@@ -11,9 +11,10 @@
   border-radius: 8px;
   margin: 1rem 0;
   cursor: pointer;
+  transition: 0.4s;
 }
 .quiz-option:hover {
-  filter: brightness(90%);
+  background: #80808073;
   box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px;
 }
 main div {

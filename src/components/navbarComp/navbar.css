@@ -6,7 +6,7 @@
 }
 .left-nav,
 .btn-icon {
-  color: var(--white);
+  color: inherit;
 }
 .btn-icon:nth-child(3) {
   font-size: 1rem;
@@ -21,10 +21,10 @@
 }
 .drop-box {
   position: absolute;
-  color: var(--white);
+  color: inherit;
   top: -111px;
   right: -35px;
-  border-left: 1px solid white;
+  border-left: 1px solid gray;
   transition: 0.4s ease-in-out;
 }
 .drop-box p {
