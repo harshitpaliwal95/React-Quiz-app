@@ -5,12 +5,8 @@ import { ScrollToTop } from "../../customHook/scrollToTop";
 import { useEffect } from "react";
 import { clearMcq } from "../../feature/quizSlice";
 
-const ResultQuiz = (data: any) => {
-  const { question, options, answer, userAns } = data.data;
-  const dispatch: AppDispatch = useDispatch();
-  useEffect(() => {
-    dispatch(clearMcq());
-  }, []);
+const ResultQuiz = ({ data }: any) => {
+  const { question, options, answer, userAns } = data;
 
   const resultCheck = (opt: string) => {
     if (answer === opt) {
@@ -35,15 +31,24 @@ const ResultQuiz = (data: any) => {
 export const Result = () => {
   const { quiz } = useSelector((store: RootState) => store);
 
+  const score = quiz.result.filter((item: any) => item.answer === item.userAns);
+
+  const dispatch: AppDispatch = useDispatch();
+
   useEffect(() => {
     ScrollToTop();
+    dispatch(clearMcq());
   }, []);
+
   return (
     <main>
       <div className="que-container">
         <div className="space-between score-box">
           <div>
             <h3>Final Result</h3>
+          </div>
+          <div>
+            <h3>Your Score {score.length * 10}</h3>
           </div>
         </div>
         {quiz.result.map((data: any) => (
