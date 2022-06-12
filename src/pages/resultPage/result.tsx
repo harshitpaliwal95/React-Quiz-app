@@ -10,16 +10,14 @@ const ResultQuiz = (data: any) => {
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     dispatch(clearMcq());
-  });
+  }, []);
 
   const resultCheck = (opt: string) => {
     if (answer === opt) {
       return "right-ans";
     }
-    if (userAns === opt) {
-      if (userAns !== answer) {
-        return "wrong-ans";
-      }
+    if (userAns === opt && userAns !== answer) {
+      return "wrong-ans";
     }
   };
   return (
@@ -45,7 +43,7 @@ export const Result = () => {
       <div className="que-container">
         <div className="space-between score-box">
           <div>
-            <h3>Finnal Result</h3>
+            <h3>Final Result</h3>
           </div>
         </div>
         {quiz.result.map((data: any) => (

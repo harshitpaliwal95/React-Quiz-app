@@ -4,11 +4,11 @@ export interface AuthBody {
   name?: string;
   lastName?: string;
 }
-export interface CategoryType {
+export type CategoryType = {
   _id?: string;
   categoryName: string;
   img: string;
-}
+};
 
 export interface QuizState {
   isLoading: boolean;
@@ -28,3 +28,19 @@ export interface Authstate {
   encodedToken: any;
   error: string | null;
 }
+
+export type mcqsType = {
+  _id: any;
+  question: string;
+  options: string[];
+  answer: string;
+};
+
+export type quizeType = {
+  _id: any;
+  title: string;
+  img: string;
+  totalScore: number;
+  mcqs: mcqsType[];
+  categoryName: string;
+};

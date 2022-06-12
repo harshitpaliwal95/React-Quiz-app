@@ -16,7 +16,7 @@ export const Home = () => {
   return (
     <main>
       <div className="grid-two">
-        {quiz.categoryQuiz.map((dataOne: any) => (
+        {quiz?.categoryQuiz?.map((dataOne: any) => (
           <CategoryCard
             key={dataOne._id}
             categoryName={dataOne.categoryName}
