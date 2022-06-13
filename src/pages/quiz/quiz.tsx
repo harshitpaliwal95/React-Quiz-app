@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { finnalResult } from "../../feature/quizSlice";
@@ -8,20 +8,29 @@ import "./quiz.css";
 const QuizQuestion = ({ data }: any) => {
   const dispatch: AppDispatch = useDispatch();
   const [btnDisable, setBtnDisable] = useState(false);
+  const [userAns, setUserAns] = useState(String);
 
-  const optHandler = (selectedOpt: any) => {
+  let i = 1;
+  useEffect(() => {
+    setBtnDisable(false);
+  }, [data]);
+
+  const optHandler = (selectedOpt: string) => {
+    setUserAns(selectedOpt);
     dispatch(finnalResult({ selectedOpt, _id }));
     setBtnDisable(true);
   };
 
   const { question, options, _id } = data;
-  let i = 1;
+
   return (
     <>
       <div className="text-lg">{question}</div>
       {options.map((opt: any) => (
         <button
-          className={`quiz-option  ${btnDisable && "disable"}`}
+          className={`quiz-option ${btnDisable && "disable"} ${
+            userAns === opt && " selected-opt"
+          }`}
           key={opt}
           onClick={() => optHandler(opt)}
           disabled={btnDisable}

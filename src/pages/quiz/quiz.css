@@ -26,8 +26,8 @@
   box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px;
 }
 .selected-opt {
-  background: #80808073;
-  box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px;
+  background: #80808073 !important;
+  box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px !important;
   filter: brightness(100%) !important;
 }
 #hidden {
