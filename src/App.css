@@ -14,6 +14,7 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }
+
 :root {
   --box-shadow-quiz: gray 0px 8px 24px;
 }

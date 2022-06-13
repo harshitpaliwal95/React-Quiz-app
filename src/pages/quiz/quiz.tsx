@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { finnalResult } from "../../feature/quizSlice";
@@ -6,27 +7,28 @@ import "./quiz.css";
 
 const QuizQuestion = ({ data }: any) => {
   const dispatch: AppDispatch = useDispatch();
+  const [btnDisable, setBtnDisable] = useState(false);
 
   const optHandler = (selectedOpt: any) => {
     dispatch(finnalResult({ selectedOpt, _id }));
+    setBtnDisable(true);
   };
 
   const { question, options, _id } = data;
+  let i = 1;
   return (
     <>
       <div className="text-lg">{question}</div>
       {options.map((opt: any) => (
-        <div className="quiz-option" key={opt}>
-          <label>
-            <input
-              type="radio"
-              value={opt}
-              onChange={() => optHandler(opt)}
-              name={_id}
-            ></input>
-            {opt}
-          </label>
-        </div>
+        <button
+          className={`quiz-option  ${btnDisable && "disable"}`}
+          key={opt}
+          onClick={() => optHandler(opt)}
+          disabled={btnDisable}
+        >
+          <p>{i++}.</p>
+          <p>{opt}</p>
+        </button>
       ))}
     </>
   );
@@ -35,7 +37,13 @@ const QuizQuestion = ({ data }: any) => {
 export const Quiz = () => {
   const { quiz } = useSelector((store: RootState) => store);
 
+  const [mcqValue, setMcqValue] = useState(1);
+
+  const mcq = quiz.selectedMcq[mcqValue - 1];
+  console.log(mcqValue);
+
   const navigate = useNavigate();
+
   return (
     <main>
       <div className="que-container">
@@ -47,13 +55,25 @@ export const Quiz = () => {
             <h4>Total Points: 50</h4>
           </div>
         </div>
-        {quiz.selectedMcq.map((data: any) => (
-          <QuizQuestion key={data._id} data={data} />
-        ))}
+
+        {quiz.selectedMcq !== [] ? <QuizQuestion data={mcq} /> : null}
       </div>
-      <div className="btn-box">
-        <button className="btn" onClick={() => navigate("/result")}>
-          Result
+      <div className="btn-box space-between" id="btn-box-wd">
+        <button className="btn" id="quit-btn">
+          <i className="bi bi-arrow-left"> </i> <p> Quit</p>
+        </button>
+        {mcqValue === quiz.selectedMcq.length && (
+          <button className="btn" onClick={() => navigate("/result")}>
+            <p>Result </p>
+          </button>
+        )}
+        <button
+          className="btn"
+          id={`${mcqValue === quiz.selectedMcq.length ? "hidden" : null}`}
+          onClick={() => setMcqValue((pre) => (pre += 1))}
+        >
+          <p>Next </p>
+          <i className="bi bi-arrow-right"></i>
         </button>
       </div>
     </main>
