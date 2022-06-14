@@ -11,7 +11,9 @@ import { RootState } from "./store";
 function App() {
   const { auth } = useSelector((store: RootState) => store);
   return (
-    <div className={`App ${auth.theme === "light" ? null : "dark-mode"}`}>
+    <div
+      className={`App ${auth.theme === "light" ? "light-mode" : "dark-mode"}`}
+    >
       <ToastContainer />
       <NavBar />
       <Routes>

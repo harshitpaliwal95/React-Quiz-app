@@ -71,12 +71,12 @@ export const Quiz = () => {
           <i className="bi bi-arrow-left"> </i> <p> Quit</p>
         </button>
         {mcqValue === quiz.selectedMcq.length && (
-          <button className="btn" onClick={() => navigate("/result")}>
+          <button className="btn  quiz-btn" onClick={() => navigate("/result")}>
             <p>Result </p>
           </button>
         )}
         <button
-          className="btn"
+          className="btn quiz-btn"
           id={`${mcqValue === quiz.selectedMcq.length ? "hidden" : null}`}
           onClick={() => setMcqValue((pre) => (pre += 1))}
         >

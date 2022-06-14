@@ -26,10 +26,11 @@
   box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px;
 }
 .selected-opt {
-  background: #80808073 !important;
+  background: #80808094 !important;
   box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px !important;
   filter: brightness(100%) !important;
 }
+
 #hidden {
   display: none;
 }
@@ -60,6 +61,10 @@ main div {
   display: flex;
   justify-content: space-between;
   width: 80%;
+}
+.light-mode .quiz-btn {
+  background-color: black;
+  color: white;
 }
 
 @media only screen and (max-width: 600px) {
