@@ -1,4 +1,7 @@
-body {
+.App {
+  min-height: 100vh;
+}
+.dark-mode {
   background: #0f0c29; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -14,7 +17,10 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+}
 :root {
   --box-shadow-quiz: gray 0px 8px 24px;
 }

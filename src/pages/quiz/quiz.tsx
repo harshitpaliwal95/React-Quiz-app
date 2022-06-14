@@ -11,6 +11,7 @@ const QuizQuestion = ({ data }: any) => {
   const [userAns, setUserAns] = useState(String);
 
   let i = 1;
+
   useEffect(() => {
     setBtnDisable(false);
   }, [data]);
@@ -49,8 +50,6 @@ export const Quiz = () => {
   const [mcqValue, setMcqValue] = useState(1);
 
   const mcq = quiz.selectedMcq[mcqValue - 1];
-  console.log(mcqValue);
-
   const navigate = useNavigate();
 
   return (
@@ -65,7 +64,7 @@ export const Quiz = () => {
           </div>
         </div>
 
-        {quiz.selectedMcq !== [] ? <QuizQuestion data={mcq} /> : null}
+        {mcq !== undefined ? <QuizQuestion data={mcq} /> : null}
       </div>
       <div className="btn-box space-between" id="btn-box-wd">
         <button className="btn" id="quit-btn">

@@ -36,6 +36,11 @@
 .show-box {
   top: 4.5rem;
 }
+.ui-nav {
+  margin-top: 0;
+  padding-top: 1rem;
+  padding-inline: 2rem;
+}
 
 .drop-box p {
   font-size: 1.1rem;

@@ -27,7 +27,7 @@ export interface Authstate {
   userName: string | null;
   encodedToken: any;
   error: string | null;
-  darkMode: boolean;
+  theme: string | null;
 }
 
 export type mcqsType = {

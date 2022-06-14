@@ -9,7 +9,7 @@ const initialState: Authstate = {
   userName: localStorage.getItem("userName"),
   encodedToken: localStorage.getItem("token"),
   error: null,
-  darkMode: true,
+  theme: localStorage.getItem("theme") ?? "dark",
 };
 
 export const login = createAsyncThunk(
@@ -41,6 +41,9 @@ const authSlice = createSlice({
       localStorage.removeItem("token");
       localStorage.removeItem("userName");
     },
+    updateTheme: (state) => {
+      state.theme = localStorage.getItem("theme");
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -58,5 +61,5 @@ const authSlice = createSlice({
       });
   },
 });
-export const { logOut } = authSlice.actions;
+export const { logOut, updateTheme } = authSlice.actions;
 export default authSlice.reducer;
