@@ -5,6 +5,9 @@
   height: 80vh;
   width: 100vw;
 }
+.form-container i {
+  color: inherit;
+}
 .form-info {
   box-shadow: var(--main-box-shadow);
   width: 25rem;
