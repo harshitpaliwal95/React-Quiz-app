@@ -10,7 +10,7 @@ export const CategoryCard = ({ categoryName, img, _id }: CategoryType) => {
   const dispatch: AppDispatch = useDispatch();
   const categoryHandler = (catName: any) => {
     navigate(`/category/${catName}`);
-    // dispatch(subQuiz(catName));
+    dispatch(subQuiz(catName));
   };
   return (
     <div>
