@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { finnalResult } from "../../feature/quizSlice";
 import { AppDispatch, RootState } from "../../store";
 import "./quiz.css";
@@ -48,9 +49,16 @@ export const Quiz = () => {
   const { quiz } = useSelector((store: RootState) => store);
 
   const [mcqValue, setMcqValue] = useState(1);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (quiz.selectedMcq.length === 0) {
+      navigate("/");
+      toast.info("You cant refresh");
+    }
+  }, [quiz.selectedMcq]);
 
   const mcq = quiz.selectedMcq[mcqValue - 1];
-  const navigate = useNavigate();
 
   return (
     <main>

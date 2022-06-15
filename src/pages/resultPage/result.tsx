@@ -4,6 +4,7 @@ import "./result.css";
 import { ScrollToTop } from "../../customHook/scrollToTop";
 import { useEffect } from "react";
 import { clearMcq } from "../../feature/quizSlice";
+import { useNavigate } from "react-router-dom";
 
 const ResultQuiz = ({ data }: any) => {
   const { question, options, answer, userAns } = data;
@@ -34,11 +35,15 @@ export const Result = () => {
   const score = quiz.result.filter((item: any) => item.answer === item.userAns);
 
   const dispatch: AppDispatch = useDispatch();
-
+  const navigate = useNavigate();
   useEffect(() => {
     ScrollToTop();
     dispatch(clearMcq());
-  }, []);
+
+    if (quiz.result.length === 0) {
+      navigate("/");
+    }
+  }, [quiz.result]);
 
   return (
     <main>
