@@ -1,52 +1,14 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { finnalResult } from "../../feature/quizSlice";
+import { clearMcq, clearResult } from "../../feature/quizSlice";
 import { AppDispatch, RootState } from "../../store";
 import "./quiz.css";
-
-const QuizQuestion = ({ data }: any) => {
-  const dispatch: AppDispatch = useDispatch();
-  const [btnDisable, setBtnDisable] = useState(false);
-  const [userAns, setUserAns] = useState(String);
-
-  let i = 1;
-
-  useEffect(() => {
-    setBtnDisable(false);
-  }, [data]);
-
-  const optHandler = (selectedOpt: string) => {
-    setUserAns(selectedOpt);
-    dispatch(finnalResult({ selectedOpt, _id }));
-    setBtnDisable(true);
-  };
-
-  const { question, options, _id } = data;
-
-  return (
-    <>
-      <div className="text-lg">{question}</div>
-      {options.map((opt: any) => (
-        <button
-          className={`quiz-option ${btnDisable && "disable"} ${
-            userAns === opt && " selected-opt"
-          }`}
-          key={opt}
-          onClick={() => optHandler(opt)}
-          disabled={btnDisable}
-        >
-          <p>{i++}.</p>
-          <p>{opt}</p>
-        </button>
-      ))}
-    </>
-  );
-};
+import { QuizQuestion } from "./quizQuestion";
 
 export const Quiz = () => {
   const { quiz } = useSelector((store: RootState) => store);
+  const dispatch: AppDispatch = useDispatch();
 
   const [mcqValue, setMcqValue] = useState(1);
   const navigate = useNavigate();
@@ -54,11 +16,15 @@ export const Quiz = () => {
   useEffect(() => {
     if (quiz.selectedMcq.length === 0) {
       navigate("/");
-      toast.info("You cant refresh");
     }
   }, [quiz.selectedMcq]);
 
   const mcq = quiz.selectedMcq[mcqValue - 1];
+
+  const quitHandler = () => {
+    dispatch(clearMcq());
+    dispatch(clearResult());
+  };
 
   return (
     <main>
@@ -75,7 +41,7 @@ export const Quiz = () => {
         {mcq !== undefined ? <QuizQuestion data={mcq} /> : null}
       </div>
       <div className="btn-box space-between" id="btn-box-wd">
-        <button className="btn" id="quit-btn">
+        <button className="btn" id="quit-btn" onClick={() => quitHandler()}>
           <i className="bi bi-arrow-left"> </i> <p> Quit</p>
         </button>
         {mcqValue === quiz.selectedMcq.length && (
