@@ -14,6 +14,9 @@
   height: auto;
   background-color: #100d2a69;
 }
+.light-mode .form-info {
+  background-color: white;
+}
 .heading-x-lg {
   font-weight: 600;
   padding: 1rem 0rem;
