@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { CategoryCard } from "../../components";
-import { getAllQuiz, getCategory } from "../../feature/quizSlice";
+import { clearResult, getAllQuiz, getCategory } from "../../feature/quizSlice";
 import { AppDispatch, RootState } from "../../store";
 import { useEffect } from "react";
 
@@ -11,12 +11,13 @@ export const Home = () => {
   useEffect(() => {
     dispatch(getCategory());
     dispatch(getAllQuiz());
+    dispatch(clearResult());
   }, []);
 
   return (
     <main>
       <div className="grid-two">
-        {quiz.categoryQuiz.map((dataOne: any) => (
+        {quiz?.categoryQuiz?.map((dataOne: any) => (
           <CategoryCard
             key={dataOne._id}
             categoryName={dataOne.categoryName}

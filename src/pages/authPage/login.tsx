@@ -67,16 +67,6 @@ export const Login = () => {
                   ></i>
                 </button>
               </div>
-              <div className="space-between forget-pass">
-                <span>
-                  <label className="text-medium">
-                    <input type="checkbox" /> Remember Me
-                  </label>
-                </span>
-                <span>
-                  <span className="text-medium">Forgot your password?</span>
-                </span>
-              </div>
               <div className="form-btn">
                 <button
                   className="btn btn-outline"

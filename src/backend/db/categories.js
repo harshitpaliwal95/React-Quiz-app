@@ -9,7 +9,7 @@ export const categories = [
   {
     _id: "anime",
     categoryName: "Anime Quiz",
-    img: "SC8qp_TCvc4",
+    img: "570kioiF2jg",
   },
   {
     _id: "coding",

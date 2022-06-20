@@ -5,10 +5,15 @@ import { NavBar } from "./components";
 import { Category, Home, Login, Quiz, Result, Rules, SignUp } from "./pages";
 import { ToastContainer } from "react-toastify";
 import { ProtectedRoute } from "./customHook/protectedRoute";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
 
 function App() {
+  const { auth } = useSelector((store: RootState) => store);
   return (
-    <div className="App">
+    <div
+      className={`App ${auth.theme === "light" ? "light-mode" : "dark-mode"}`}
+    >
       <ToastContainer />
       <NavBar />
       <Routes>

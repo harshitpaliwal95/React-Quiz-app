@@ -31,7 +31,7 @@ export const Rules = () => {
         </div>
       </div>
       <button className="btn rules-box-btn" onClick={() => navigate("/quiz")}>
-        <p>Star Quizz</p>
+        <p>Start Quizz</p>
       </button>
     </main>
   );

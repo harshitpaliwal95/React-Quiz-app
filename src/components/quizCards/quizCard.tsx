@@ -9,7 +9,7 @@ export const QuizCard = (data: any) => {
   const navigate = useNavigate();
 
   const quizHandler = () => {
-    navigate("/rules  ");
+    navigate("/rules");
     dispatch(selectedMcq(title));
   };
   return (
